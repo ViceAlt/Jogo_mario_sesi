@@ -1,6 +1,8 @@
 const mario = document.querySelector(".mario");
 const pipe =document.querySelector(".pipe");
 let injump = false;
+let points = 0;
+let death = false;
 
 document.addEventListener("keydown", (e) => {
     if ((e.code === "Space") | (e.code === "ArrowUp")) {
@@ -9,15 +11,21 @@ document.addEventListener("keydown", (e) => {
 })
 
 function jump() {
-    if (!mario.classList.contains("jump")){
+    while(death = true){
+        if (!mario.classList.contains("jump")){
         mario.classList.add("jump");
         injump = true;
+        if(injump = true){
+        }
 
         setTimeout(() => {
             mario.classList.remove("jump");
             injump = false;
         }, 450);
     }
+    break
+    }
+
 }
 
 setInterval(() => {
@@ -28,11 +36,17 @@ setInterval(() => {
 
     if(pipePosition <= 60 && pipePosition > 0 && marioPosition < 80)
     {
-        pipe.style.animation = 'none';
-        // pipe.offsetLeft.style = '${pipePosition}px';
+        death = true
+        pipe.style.animation = "stop";
+        pipe.style.left = `${pipePosition}px`;
 
-        mario.style.animation = "none";
-        mario.style.bottom = '${marioPosition}px';
+        mario.style.animation = "stop";
+        mario.style.bottom = `${marioPosition}px`;
     }
-
 }, 10);
+
+    points++
+    console.log(points)
+    console.log(death)
+
+
