@@ -11,16 +11,25 @@
     overflow: hidden;
     background: linear-gradient(#4374ca, #87b4eb, #e0f6ff);
 }
+.coin {
+    position: absolute;
+    bottom: 120px;
+    width: 90px;
+    right: 10px;
+    animation: coin-animation 3s infinite linear;
+    display: block;
+}
 .pipe {
     position: absolute;
     bottom: 0;
     width: 80px;
+    right: 0px;
     animation: pipe-animation 3s infinite linear;
 }
 .mario {
     position: absolute;
     bottom: 0;
-    width: 150px;
+    width: 110px;
 }
 .jump {
     animation: jump 500ms ease-out;
@@ -30,16 +39,27 @@
     position: absolute;
     width: 550px;
     animation: clouds-animation 20s infinite linear;
+    
 }
 @keyframes pipe-animation {
     from {
-        right: -80px;
+        right: -120px;
     }
 
     to {
         right: 100%;
     }
 }
+@keyframes coin-animation {
+    from {
+        right: -120px;
+    }
+
+    to {
+        right: 100%;
+    }
+}
+
 @keyframes jump {  
     0% {
         bottom: 0px;
